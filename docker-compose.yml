@@ -1,0 +1,14 @@
+services:
+  structurizr:
+    image: structurizr/structurizr
+    command: local
+    container_name: structurizr
+    user: "1000:1000"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/usr/local/structurizr
+    environment:
+      - STRUCTURIZR_AUTOREFRESHINTERVAL=2000
+      - STRUCTURIZR_EDITABLE=true
+    restart: unless-stopped
